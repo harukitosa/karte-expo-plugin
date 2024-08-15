@@ -1,30 +1,79 @@
-<a href="https://karte.io"><img src="https://karte.io/assets/images/common/logo_black.svg" width="270" height="80"></img></a>
+# plugin
 
+This repository includes the implementation of a [Config plugins](https://docs.expo.dev/config-) for [karte-react-native](https://github.com/plaidev/karte-react-native/plugins/introduction/), as well as the implementation of the [Expo Modules API](https://docs.expo.dev/modules/overview/) for karte-react-native.
 
-[![License](https://img.shields.io/badge/license-Apache%202-blue)](https://github.com/plaidev/karte-expo-plugin/blob/master/LICENSE)
+This plugin automatically initializes KARTE SDK and configures settings for receiving push notifications.
 
-KARTE is a real-time user analysis & action tool. This repository holds the source code for the Expo Plugin for the React Native version of the KARTE SDK.
+# Installation
 
-## Getting Started
-Please see the detailed instructions in our docs to add [KARTE React Native SDK](https://developers.karte.io/docs/react-native-sdk-v2) to your project.
+## Prerequisite
 
-## Documentation
-The developer guide is located at
-- [Developer Portal - KARTE React Native SDK](https://developers.karte.io/docs/react-native-sdk-v2)
+To install this plugin, the prerequisites `@react-native-firebase/app` and `@react-native-firebase/messaging` must be installed first. Please refer to the react-native-firebase [documentation](https://rnfirebase.io/) for details.
 
-## Getting Help
-- **Have a bug to report?**
-  [Open a GitHub issue](https://github.com/plaidev/karte-expo-plugin/issues/new). If possible, include the OS version, SDK version and full logs.
-- **Have a feature request?**
-  [Open a GitHub issue](https://github.com/plaidev/karte-expo-plugin/issues/new). Tell us what the feature should do and why you want the feature.
+## Install plugin
 
-## Contributing
+Add the plugin to your expo project.
+```sh
+yarn add karte-expo-plugin
+```
 
-Please follow our guidelines.
- - [Contribution Guideline](https://github.com/plaidev/karte-expo-plugin/blob/master/CONTRIBUTING.md)
- - [Code of Conduct](https://github.com/plaidev/karte-expo-plugin/blob/master/CODE_OF_CONDUCT.md)
+# Develop
 
-## License
-KARTE Expo Plugin is published under the Apache 2.0 License.
+## Prerequisite
 
-Your use of KARTE is governed by the [KARTE Terms of Use](https://karte.io/legal/terms-of-use-en.html).
+- node v18.x
+- yarn
+
+## Install node packages
+
+```sh
+yarn install
+```
+
+## Build
+
+```sh
+yarn build
+```
+
+## Test
+
+```
+yarn test
+```
+
+## Source directories
+
+- src
+
+  - [Config plugins](https://docs.expo.dev/config-plugins/introduction/) implementation.
+
+- android
+
+  - [Expo Modules API](https://docs.expo.dev/modules/overview/) implementation for Android.
+
+- ios
+  - [Expo Modules API](https://docs.expo.dev/modules/overview/) implementation for iOS.
+
+## Project for development
+
+`../example` directory is the Expo project for development. You can use this project to check the functions.
+
+# Release
+
+## 1. Update plugin version
+
+```sh
+yarn version <strategy>
+```
+
+## 2. Create tag
+
+```sh
+git tag -a <version>
+git push origin <version>
+```
+
+## 3. Create release from tag
+
+Create a release in [releases](https://github.com/plaidev/karte-expo-plugin/releases). Then the [publish workflow](https://github.com/plaidev/karte-expo-plugin/blob/main/.github/workflows/publish.yml) is run and the package is published.
