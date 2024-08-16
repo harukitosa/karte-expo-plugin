@@ -84,6 +84,16 @@ android {
   }
 }
 
+kotlin {
+  jvmToolchain(11)
+}
+
+java {
+  toolchain {
+    languageVersion.set(JavaLanguageVersion.of(11))
+  }
+}
+
 repositories {
   mavenCentral()
 }
